@@ -12,4 +12,9 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
+  get "/categories" do
+    categories = FoodItem.pluck(:category).uniq
+    categories.to_json
+  end
+
 end
