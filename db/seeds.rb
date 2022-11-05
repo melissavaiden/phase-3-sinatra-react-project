@@ -1,5 +1,5 @@
 puts "🌱 Seeding spices..."
 
-# Seed your database here
+User.create(username: "cookingperson1004")
 
 puts "✅ Done seeding!"
