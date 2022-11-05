@@ -15,6 +15,8 @@ User.create(username: "MelissaV")
 User.create(username: "GabriellaN")
 User.create(username: "ChloeKing")
 User.create(username: "superchef1")
+User.create(username: "tastytummy101")
+
 
  FoodItem.create(
         name: "Tuna Roll",
