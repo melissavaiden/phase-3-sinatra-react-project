@@ -17,7 +17,7 @@ User.create(username: "ChloeKing")
 User.create(username: "superchef1")
 
 
-50.times do 
+20.times do 
     FoodItem.create(
         name: Faker::Food.dish,
         price: rand(0..50),
