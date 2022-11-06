@@ -4,8 +4,14 @@ class ApplicationController < Sinatra::Base
   # Add your routes here
   get "/" do
     food_items = FoodItem.all
-    food_items.to_json(include: :user)
+    food_items.to_json(include: :user) 
   end
+
+  get "/food" do
+    food_items = FoodItem.all
+    food_items.to_json(include: :user) 
+  end
+  
 
   get "/users" do
     users = User.all
@@ -14,6 +20,11 @@ class ApplicationController < Sinatra::Base
 
   get "/categories" do
     categories = FoodItem.pluck(:category).uniq
+    categories.to_json
+  end
+
+  get '/food/:category' do
+    categories = FoodItem.where(category: params[:category].capitalize)
     categories.to_json
   end
 
