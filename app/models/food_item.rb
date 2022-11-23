@@ -4,4 +4,5 @@ class FoodItem < ActiveRecord::Base
     def self.category
         FoodItem.pluck(:category).uniq
     end
+
 end

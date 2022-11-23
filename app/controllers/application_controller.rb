@@ -21,6 +21,12 @@ class ApplicationController < Sinatra::Base
     new_food = FoodItem.create(name: params[:name], price: params[:price], category: params[:category], description: params[:description], user_id: params[:user_id], picture_url: params[:picture_url])
     new_food.to_json
   end
+
+  delete "/food/:id" do
+    food = FoodItem.find(params[:id])
+    food.destroy
+    food.to_json
+  end
   
 
   get "/users" do
