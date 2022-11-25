@@ -17,6 +17,11 @@ class ApplicationController < Sinatra::Base
     food_items.to_json(include: :user) 
   end
 
+  # get "/food/:id" do
+  #   food_item = FoodItem.find(params[:id])
+  #   food_item.to_json(include: :user)
+  # end
+
   post "/food" do
     new_food = FoodItem.create(name: params[:name], price: params[:price], category: params[:category], description: params[:description], user_id: params[:user_id], picture_url: params[:picture_url])
     new_food.to_json
@@ -26,6 +31,12 @@ class ApplicationController < Sinatra::Base
     food = FoodItem.find(params[:id])
     food.destroy
     food.to_json
+  end
+
+  patch "/food/:id" do
+    update_food = FoodItem.find(params[:id])
+    update_food.update(name: params[:name], price: params[:price], category: params[:category], description: params[:description], user_id: params[:user_id], picture_url: params[:picture_url])
+    update_food.to_json
   end
   
 
